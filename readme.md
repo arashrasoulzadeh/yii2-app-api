@@ -5,5 +5,5 @@
 Index
 -------
 
-- [License](LICENSE.md)
-- [Usage](installation.md)
+- [License](doc/LICENSE.md)
+- [Usage](doc/installation.md)
