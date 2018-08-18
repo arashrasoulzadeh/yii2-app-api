@@ -1,0 +1,49 @@
+version: "3"
+services:
+    api:
+        image: navidonskis/nginx-php7.1
+        ports: 
+            - "80:80"
+        # container_name: api
+        restart: always
+        links:
+            - db
+        networks:
+            - default
+        volumes:
+          # 1. mount your workdir path
+          - .:/var/www
+          # 2. mount your configuration of site
+          # - /mnt/docker/nginx/sites-enabled:/etc/nginx/sites-enabled
+          # 3. if you have settings for ssmtp
+          # - /mnt/docker/nginx/ssmtp/ssmtp.conf:/etc/ssmtp/ssmtp.conf
+          # 4. if you want to override php.ini file
+          # - /mnt/docker/php/custom.ini:/etc/php/7.1/fpm/conf.d/custom.ini
+        # 5. have a cronjob tasks? run the command...
+        # command:
+          # remember to escape variables dollar sign with duplication $$ instead $
+          # - '* * * * * echo "Hello $$(date)" >> /var/log/cron.log 2>&1'
+          # - '* * * * * echo "Hello world !" >> /var/log/cron.log 2>&1'
+    db:
+        image: mysql:latest
+        ports: 
+            - "3306:3306"
+        environment:
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+            MYSQL_ROOT_PASSWORD: root
+        networks:
+            - default
+        restart: always
+        command: --default-authentication-plugin=mysql_native_password
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - db:db
+        ports:
+            - 8000:80
+        environment:
+            PMA_ARBITRARY: 1
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+            MYSQL_ROOT_PASSWORD: root

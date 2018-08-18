@@ -1,0 +1,38 @@
+{
+    "name": "yiisoft/yii2-app-api",
+    "description": "Yii 2 Api Project Template",
+    "keywords": ["yii2", "framework", "api", "project template"],
+    "homepage": "http://www.github.com/aminkt/yii2-app-api",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/aminkt/yii2-app-api/issues?state=open",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "source": "https://github.com/aminkt/yii2-app-api"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.6",
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
