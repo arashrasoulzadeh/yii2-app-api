@@ -8,4 +8,6 @@ return [
             'POST login' => 'login',
         ]
     ],
+
+    'debug/default/<action>' => 'debug/default/<action>'
 ];
