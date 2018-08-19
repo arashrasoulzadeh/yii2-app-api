@@ -1,5 +1,5 @@
 # phpstorm project files
-# .idea
+.idea
 
 # netbeans project files
 nbproject
@@ -15,6 +15,12 @@ Thumbs.db
 # Mac DS_Store Files
 .DS_Store
 
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
 # phpunit itself is not needed
 phpunit.phar
 # local phpunit config
@@ -22,3 +28,8 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
+# script files
+index.php
+index-test.php
+robots.txt
