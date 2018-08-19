@@ -12,7 +12,6 @@ return [
     'bootstrap' => ['log'],
     'language' => 'en',
     'defaultRoute' => 'v1/user/profile',
-    'controllerNamespace' => 'rest\controllers',
     'components' => [
         'request' => [
             'parsers' => [
@@ -29,7 +28,7 @@ return [
 //                header("Access-Control-Allow-Credentials: true");
 
                 $debugRoute = preg_match('%debug%', Yii::$app->getRequest()->getPathInfo());
-                if (!YII_DEBUG or !$debugRoute) {
+                if (!(YII_DEBUG and $debugRoute)) {
                     $response = $event->sender;
                     if ($response->data !== null) {
                         if (!$response->isSuccessful) {
